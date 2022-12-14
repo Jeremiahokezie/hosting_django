@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django</title>
+    <link href="{% static 'new/style2.css' %}" type="text/css" rel="stylesheet">
+<style>
+.nav a{
+    float: right;
+    color:rgb(85, 77, 77);
+    border: 2px solid rgb(85, 77, 77);
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-left: 5px;
+    border-radius: 12px;
+}
+
+.nav a:hover{
+  
+    color:white;
+    background-color: rgb(85, 77, 77);
+    
+}
+
+.head h1{
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    text-align: left;
+    background-color: rgb(85, 77, 77);   
+}
+
+.form{
+   padding: 3px;
+}
+
+.form input{
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: 2px solid rgb(85, 77, 77);
+    margin: 4px 0;
+}
+
+.form input[id="qty"]{
+    width: 70px;
+}
+
+
+.form button{
+    padding: 5px 20px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(85, 77, 77);
+    border: 2px solid rgb(85, 77, 77);
+    margin: 4px 0;
+    cursor: pointer;
+}
+
+.cart{
+    font-weight: bold;
+    text-align: center;
+}
+
+.cart a{
+    
+    background-color: rgb(85, 77, 77);
+    color: white;
+    padding: 5.5px;
+    border-radius: 6px;
+    text-decoration: none;
+    
+}
+
+.cart tr[id="lastrow"] td{
+    padding-top: 10px;
+    
+}
+
+.cart th{
+    background-color: rgb(85, 77, 77);
+    color: white;
+    padding: 5px;
+    
+}
+
+.cart th[id="first"]{
+    border-radius: 6px 0 0 0 ;
+}
+.cart th[id="last"]{
+    border-radius:  0 6px 0 0;
+}
+</style>
+</head>
+<body>
+    <div class="head">
+        <h1>Dashboard - Welcome {{user}}</h1>
+    </div>
+    
+    <div class="nav">
+        <a href="{% url 'new:logout' %}">Loguot</a>
+    </div>
+
+    <div class="nav">
+        <a href="#">Clear Cart</a>
+    </div>
+    
+    <div style="display: inline">
+        <div>
+            <form method="post" class="form" name="cart">
+                {% csrf_token %}
+                <input  list="goods" name="good" placeholder="Product" required>
+                <datalist id="goods" size="5">
+                    <option  value="" diasbled>
+                    {% for good in good %}
+                    <option  value="{{ good.Product }}">
+                    {% endfor %}
+                </datalist>
+                
+                <input id="qty" type="number" placeholder="Quantity" name="quantity" required>
+        
+                <button type="submit" >Add to cart</button>
+
+                
+            </form>
+            
+            
+            
+        </div>
+        <div>
+            {% for message in messages %}
+            <h5 style="color: green">{{message}}</h5>
+            {% endfor %}
+        </div>
+        
+    </div>
+    <div >
+        <table class="cart">
+            <tr>
+                <th id="first">S/N</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th id="last">Total Price</th>
+            </tr>
+            {% for purchases in purchase %}
+            
+            <tr>
+                <td id="row"><b>{{forloop.counter}}</b></td>
+                <td id="row" style="text-align:left;">{{purchases.Product}}</td>
+                <td id="row">{{purchases.Quantity}}</td>
+                <td id="row">{{purchases.Price}}</td>
+                <td id="row">{{purchases.TPrice}}</td>
+            </tr>
+            {% endfor %}
+            <tr id="lastrow">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="{% url 'new:reciept' %} " target="_blank">Generate Reciept</a></td>
+            </tr>
+        </table>
+        
+    </div>
+    
+    <script>
+        if (window.history.replaceState){
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+</body>
+</html>
+

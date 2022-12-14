@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJango</title>
+    <link href="{% static 'new/style.css' %}" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="head">
+        <h1>DJango...</h1>
+    </div>
+    
+    {% for message in messages %}
+        <h5>{{message}}</h5>
+    {% endfor %}
+    
+    <form method="post" class="form">
+        {% csrf_token %}
+        <div>
+            <input placeholder="Firstname" name="fname" type="text">
+        </div>
+    
+        <div>
+            <input placeholder="Lastname" name="lname" type="text">
+        </div>
+    
+        <div>
+            <input placeholder="Email" name="e-mail" type="email">
+        </div>
+    
+        <div>
+            <input placeholder="Username" name="uname" type="text">
+        </div>
+        
+        <div>
+            <input placeholder="Enter a password" name="password1" type="password">
+        </div>
+    
+        <div>
+            <input placeholder="Confirm password" name="password2" type="password">
+        </div> 
+    
+        <div>
+            <button type="submit">Sign Up</button>
+        </div>
+        
+    </form>
+    
+   
+</body>
+</html>

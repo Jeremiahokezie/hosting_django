@@ -1,0 +1,410 @@
+
+
+body {
+    margin: 0px;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.topbox{
+    
+    padding: 0 20px 0 24px;
+    position: relative;
+}
+
+.topbox::after{
+    content:"";
+    display: table;
+    clear: both
+}
+
+.navbar::after{
+    content:"";
+    display: table;
+    clear: both
+}
+
+
+.navbar{
+    box-shadow: 0px 2px 3px black;
+    background-color: rgb(110, 8, 105);
+}
+
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-weight: 100;
+    display: block;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.navbar li a:hover{
+    color: rgba(24, 1, 26, 0.911);
+}
+
+.navbar li input {
+    background: none;
+    font-size: 20px;
+    border: none;
+    color: white;
+    padding: 16px;
+    
+    width: 200px;
+    transition: width 2s;
+}
+
+
+.navbar li input::placeholder{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.navbar li input:hover{
+    width: 400px;
+}
+
+.navbar li input:focus{
+    outline: none;
+}
+
+
+
+.slideshow {
+    overflow: hidden;
+    display: flex;
+}
+
+.slideshow::after{
+    content:"";
+    display: table;
+    clear: both;
+    
+}
+
+.cint{
+    position: relative;
+    margin: 5px;
+    width: 33.5%;
+    float: left;
+    
+}
+
+.fade{
+    animation-name: fade ;
+    animation-duration:  2s;
+}
+
+.cint img{
+    border: 20px solid white;
+    box-shadow: 0 0 7px black;
+    border-radius: 8px;
+}
+
+.cint img:hover {
+    box-shadow: 0 0 5px 3px rgba(73, 2, 80, 0.7);
+}
+
+.cint .content {
+    position: absolute;
+    width: 80%;
+    bottom: 30px;
+    right: 20px;
+    border-radius: 10px 0 0 10px;
+    background: rgba(0, 0, 0, 0.7); /* Black background with 0.5 opacity */
+    color: #f1f1f1;
+    padding: 15px;
+    }
+
+.head, .paragraph{
+    font-family: 'Times New Roman', Times, serif !important
+
+}
+.cint .content:hover {
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.9);
+}
+
+.prev, .next {
+    cursor: pointer;
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    color: rgba(73, 2, 80, 0.911);
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    position:absolute;
+}
+
+.next {
+    right: 0 ;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0 ;
+    border-radius: 3px 0 0 3px;
+}
+  
+ 
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+#dot{
+    padding: 15px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    border: 1px solid rgb(110, 8, 105);
+    background-color: none;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    user-select: none;
+}
+
+
+.active {
+    background-color: rgb(110, 8, 105);
+}
+
+.button {
+    border-radius: 15px;
+    background-color: rgba(73, 2, 80, 0.911);
+    text-align: center;
+    padding: 5px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    opacity: 0.7;
+    font-family: 'Times New Roman', Times, serif !important
+
+}
+
+.button a{
+    color: white;
+    text-decoration: none;
+}
+  
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    font-weight: bolder;
+}
+  
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+  
+.button:hover span {
+    padding-right: 25px;
+}
+  
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+
+.welcome{
+    padding: 15px;
+    box-shadow: 0 0 5px black;
+    margin-top: -4px;
+    
+}
+
+.welcome h1{
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.istrow {
+    margin-top: 100px;
+}
+
+
+.wel{
+     width: 60%;
+     float: left;
+     margin: 15px;
+     margin-left: 30px;
+}
+
+.welcome h4{
+    text-align: justify;
+    font-size: 20px;
+    padding: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 100;
+}
+
+.review{
+    background-color: white;
+    box-shadow: 0 2px 5px black;
+    width: 35%;
+    float: left;
+    margin: 15px
+}
+
+.review h3{
+    background-color: rgb(110, 8, 105);
+    text-align: center;
+    padding: 7px;
+    color: white;
+    font-size: 28px;
+    font-weight: 100;
+    margin-top: 0px;
+    font-family: 'Times New Roman', Times, serif !important
+
+}
+
+
+
+.reviews{
+    background-color: rgb(230, 221, 221);
+    margin: 5px;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+
+
+.reviews p:first-child{
+    padding-bottom: 10px;
+}
+
+.reviews span{
+    float: right
+}
+
+.ourreview{
+    max-height: 760px;
+    overflow-y: auto;
+    margin: 15px 15px 21px 15px
+}
+
+.istrow::after{
+    content: "";
+    display: table;
+    clear:both
+}
+
+.sndrow{
+    margin: 100px 10px;
+}
+
+.sndrow h1{
+    padding: 5px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+
+
+.music{
+    margin: 0 50px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 40px 20px;
+}
+
+.music::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.number{
+    color: black;
+    padding: 5px;
+    width: 570px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+    font-size: 25px
+}
+
+.musiccontent {
+    padding: 10px;
+    box-shadow: 0 0 5px black;
+}
+
+
+.musiccontent h2{
+    font-weight: 400;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif !important;
+}
+.viewmore{
+    transform: translateX(50%);
+    margin-top: -35px;
+    margin-bottom: 20px;
+}
+
+.isndrowh2{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif !important;
+    font-size: 40px;
+}
+/*::-webkit-scrollbar {
+    width: 20px;
+}
+  
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
+  }
+  
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+  }*/

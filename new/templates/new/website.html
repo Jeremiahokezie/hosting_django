@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django</title>
+</head>
+<body>
+
+    <form action="{% url 'new:article' %}" method="post">
+        {% csrf_token %}
+        <div>
+            {{form.as_p}}
+        </div>
+
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    
+    {% if articles %}
+        {% for article in articles %}
+            <p><a href="{% url 'new:article_detail' article.id %}" style="text-decoration:none;">{{article.Title}} - {{ article.Content}}</a></p>
+        {% endfor %}
+        
+    {% else %}
+        <p>No article created</p>
+    {% endif %}
+
+    <script>
+        if (window.history.replaceState){
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+</body>
+</html>
